@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  nia-engine:
+    build: .
+    volumes:
+      - .:/app
+    working_dir: /app
+    environment:
+      - RAM_LIMIT=1GB
+    deploy:
+      resources:
+        limits:
+          memory: 1024M
+    command: /bin/bash -c "./setup.sh && tail -f /dev/null"
