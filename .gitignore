@@ -1,0 +1,6 @@
+venv/
+__pycache__/
+*.pyc
+wren.zip
+bin_wren/
+wren_cli
