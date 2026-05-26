@@ -1,0 +1,7 @@
+{
+    "model_name": "SmolLM2-135M",
+    "format": "GGUF",
+    "quantization": "Q8_0",
+    "local_path": "models/smollm2-135m.gguf",
+    "repo_id": "HuggingFaceTB/SmolLM2-135M-Instruct-GGUF"
+}

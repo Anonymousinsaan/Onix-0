@@ -15,21 +15,25 @@ graph TD
 
 ## Component Breakdown
 
-### 1. Linguistic Tokenizer (Python)
+### 1. Observation Layer (Python)
+- **Location**: `/automation/scout.py`
+- **Role**: Uses Playwright for headless data collection.
+
+### 2. Linguistic Tokenizer (Python)
 - **Location**: `/bridge/normalizer.py`
-- **Role**: Normalizes user input and external data into a canonical semantic form.
+- **Role**: Normalizes user input into a canonical semantic form.
 
-### 2. LTC Engine (Lua)
+### 3. LTC Engine (Lua)
 - **Location**: `/core/logic_lua/ltc_engine.lua`
-- **Role**: Continuous-time state inference, handling signals that vary over time.
+- **Role**: Continuous-time state inference using Liquid Time-Constant dynamics.
 
-### 3. Knowledge Graph (QuickJS)
+### 4. Knowledge Graph (QuickJS)
 - **Location**: `/core/graph_js/knowledge_graph.js`
 - **Role**: Storing relationships and facts in a zero-weight directed graph.
 
-### 4. Reflex Cache (Wren)
+### 5. Reflex Cache (Wren)
 - **Location**: `/core/state_wren/reflex_cache.wren`
 - **Role**: High-speed behavioral response and state management.
 
 ## Integration Bridge
-The components communicate via a native C bridge (`/bridge`) that passes messages between the respective virtual machines (VMs).
+The components are orchestrated via `bridge/nia_bridge.py`, which manages the communication between Python and the respective VMs (Lua, QJS, Wren).
